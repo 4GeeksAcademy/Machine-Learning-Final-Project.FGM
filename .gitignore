@@ -1,3 +1,6 @@
 __pycache__
 .env
-.learn
+.learnsrc/wildfires_v2.csv
+data/raw/incendios.csv
+src/wildfires_v2.csv
+data/raw/incendios.csv
