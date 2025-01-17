@@ -188,3 +188,8 @@ eliminaremos las coordenadas UTM.
         d. eliminar variable 'municipio'
 
 *Posteriormente (en el Feature engineering) o deploiment hacer una representación geográfica de las coordenadas.
+
+4. Después de limpiar las columnas mencionadas en los pasos anteriores,
+el datset 'incendios.csv' localizado en la carpeta src pesa 96.00 MB, y está listo para funcionar en modo colaborativo.
+
+        a. Duplicados
