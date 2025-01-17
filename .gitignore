@@ -7,3 +7,6 @@ data/raw/incendios.csv
 src/incendios_reduced.csv
 data/raw/incendios.csv
 src/wildfires_v2.csv
+src/incendios_reduced.csv
+data/raw/incendios.csv
+src/wildfires_v2.csv
