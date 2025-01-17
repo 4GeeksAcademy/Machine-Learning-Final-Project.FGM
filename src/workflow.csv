@@ -101,11 +101,13 @@ X- primeranotificacion112: si la primera notificación del incendio se produjo a
                 base_cdf
                 ejercito
                 otros
-(desde la línea 104 hasta 108 mirar los códigos de incendios approx. 30 tipos)- idcausa: código que hace referencia a la causa del incendio en el que todos aquellos códigos de 400 a 499 incluidos hacen referencia a que el incendio ha sido intencionado; el resto de los códigos se corresponden con incendios no intencionados.
+
+(desde la línea 106 hasta 110 mirar los códigos de incendios approx. 30 tipos)
+(Y)- idcausa: código que hace referencia a la causa del incendio en el que todos aquellos códigos de 400 a 499 incluidos hacen referencia a que el incendio ha sido intencionado; el resto de los códigos se corresponden con incendios no intencionados.
 ()- idmotivacion: código específico de incendios intencionados que hace referencia a la motivación que lo ha provocado
-()- causa: atributo extraído de idcausa categorizado como intencionado y no_intencionado
+(Y)- causa: atributo extraído de idcausa categorizado como intencionado y no_intencionado
 ()- idcertidumbrecausa: valor numérico que hace referencia a si la causa es cierta (1) o supuesta (2). Aplica a todo tipo de causa, es decir, tendremos incendios intencionados, supuestamente intencionados, no intencionados y supuestamente no intencionados.
-()- idcausante: si se ha identificado al causante del incendio o no, identificado (1) o no identificado (2)
+(Y)- idcausante: si se ha identificado al causante del incendio o no, identificado (1) o no identificado (2).
 
 - idclasedia: valor categórico que distingue los tipos de días:
                 laborable
@@ -159,3 +161,30 @@ X- primeranotificacion112: si la primera notificación del incendio se produjo a
                 y
 X - iddatum
 
+----------------------------------------------------------------------------------------------------------------------------
+
+1. He reducido el número total de columnas y el tamaño del archivo a bajado a 117.9 MB:
+En este primer paso han sido eliminadas 7 columnas: 'comunidad', 'provincia', 'numminicipiosafectados', 'extinguido', 'mesdeteccion', 'primeranotificacion112', 'iddatum'.
+
+2. Simplificamos las variables con info. redundante o irrelevante:
+(X)- idcausa: código que hace referencia a la causa del incendio en el que todos aquellos códigos de 400 a 499 incluidos hacen referencia a que el incendio ha sido intencionado; el resto de los códigos se corresponden con incendios no intencionados.
+- idmotivacion: código específico de incendios intencionados que hace referencia a la motivación que lo ha provocado
+(NO EXISTE EN EL DATASET)- causa: atributo extraído de idcausa categorizado como intencionado y no_intencionado
+(X)- idcertidumbrecausa: valor numérico que hace referencia a si la causa es cierta (1) o supuesta (2). Aplica a todo tipo de causa, es decir, tendremos incendios intencionados, supuestamente intencionados, no intencionados y supuestamente no intencionados.
+- idcausante: si se ha identificado al causante del incendio o no, identificado (1) o no identificado (2).
+(X) - 'intencionalidad' está en el dataset, pero no en la lista descriptiva.
+
+        a. crear variable binaria llamada 'intencionado' a partir de 'idcausa' (0,1).
+        b. elimina 'idcausa'.
+        c. eliminar 'idcertidumbrecausa'.
+        d. eliminar 'intencionalidad', ya que tiene información no interesante y redundante presente en 'intencionado'
+
+3. Simplificación de coordenadas: Dado que las coordenadas expresadas en lat/long son mucho más usadas en GIS, medioambiental, y dataset espaciales 
+eliminaremos las coordenadas UTM.
+
+        a. eliminar huso
+        b. eliminar x
+        c. eliminar y
+        d. eliminar variable 'municipio'
+
+*Posteriormente (en el Feature engineering) o deploiment hacer una representación geográfica de las coordenadas.
