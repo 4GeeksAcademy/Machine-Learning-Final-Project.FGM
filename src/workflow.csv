@@ -161,7 +161,7 @@ X- primeranotificacion112: si la primera notificación del incendio se produjo a
                 y
 X - iddatum
 
-----------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1. He reducido el número total de columnas y el tamaño del archivo a bajado a 117.9 MB:
 En este primer paso han sido eliminadas 7 columnas: 'comunidad', 'provincia', 'numminicipiosafectados', 'extinguido', 'mesdeteccion', 'primeranotificacion112', 'iddatum'.
@@ -205,3 +205,7 @@ el datset 'incendios.csv' localizado en la carpeta src pesa 96.00 MB, y está li
                categorical_imputation = ['lugar', 'combustible', 'tipodefuego', 'tipodeataque']
         Mode as a replacement: Using the mode ensures that we fill the missing values with the most common category in the column.
         This is a sensible approach because it aligns with the majority of the data and avoids introducing uncommon or arbitrary values.
+
+
+
+        Revisar: Causa
