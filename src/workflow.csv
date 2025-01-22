@@ -164,7 +164,15 @@ X - iddatum
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 1. He reducido el número total de columnas y el tamaño del archivo a bajado a 117.9 MB:
-En este primer paso han sido eliminadas 7 columnas: 'comunidad', 'provincia', 'numminicipiosafectados', 'extinguido', 'mesdeteccion', 'primeranotificacion112', 'iddatum'.
+En este primer paso han sido eliminadas 10 columnas con alto nivel de missing data: 'puntosinicioincendio', 'idgradoresponsabilidad',
+'diastormenta', 'idinvestigacioncausa', 'idautorizacionactividad', 'idnivelgravedadmaximo',
+'huso', 'x', 'y', 'iddatum'.
+
+2. A pesar de tener un alto grado de missing data (approx 50%) nos quedamos con las siguientes variables:
+'direccionviento', 'velocidadviento', 'humrelativa', 'tempmaxima', 'diasultimalluvia'
+
+Y eliminamos el resto 
+
 
 2. Simplificamos las variables con info. redundante o irrelevante:
 (X)- idcausa: código que hace referencia a la causa del incendio en el que todos aquellos códigos de 400 a 499 incluidos hacen referencia a que el incendio ha sido intencionado; el resto de los códigos se corresponden con incendios no intencionados.
